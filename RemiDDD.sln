@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemiDDD.Framework", "RemiDDD.Framework\RemiDDD.Framework.csproj", "{99642B76-E92F-4B74-8AA9-6F80BC63C4D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemiDDD.Framework.Test", "RemiDDD.Framework.Test\RemiDDD.Framework.Test.csproj", "{22F5C272-054E-4FC8-A64D-F03984334953}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99642B76-E92F-4B74-8AA9-6F80BC63C4D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99642B76-E92F-4B74-8AA9-6F80BC63C4D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99642B76-E92F-4B74-8AA9-6F80BC63C4D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99642B76-E92F-4B74-8AA9-6F80BC63C4D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22F5C272-054E-4FC8-A64D-F03984334953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22F5C272-054E-4FC8-A64D-F03984334953}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22F5C272-054E-4FC8-A64D-F03984334953}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22F5C272-054E-4FC8-A64D-F03984334953}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
