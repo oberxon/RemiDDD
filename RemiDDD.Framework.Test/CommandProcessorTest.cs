@@ -60,10 +60,24 @@ namespace RemidDDD.Framework.Test
 			commandProcessor.Raise(fakeEvent);
 			Assert.AreEqual(0, fakeEvent.Handled);
 		}
+
+		[Test]
+		public void OnTheFlyActionCalled()
+		{
+			var commandProcessor = new MessageProcessor();
+			commandProcessor.Initialize(new[] { typeof(FakeEvent), typeof(FakeCommand), typeof(FakeCommandHandlerRaisingEvent) });
+			FakeCommand command = new FakeCommand(){TestId = 14};
+			int testId = 0;
+			commandProcessor.Observe<FakeEvent>(command, e => testId = e.TestId);
+			commandProcessor.Execute(command);
+			Assert.AreEqual(command.TestId,testId);
+		}
 	}
 	public class FakeEvent : IEvent
 	{
 		public int Handled { get; set; }
+
+		public int TestId { get; set; }
 	}
 	public class FakeEventObserver : RemiDDD.Framework.Cqrs.IObserver<FakeEvent>
 	{
@@ -85,7 +99,7 @@ namespace RemidDDD.Framework.Test
 	}
 	public class FakeCommandHandler : ICommandHandler<FakeCommand>
 	{
-
+		
 		public FakeCommandHandler()
 		{
 
@@ -93,6 +107,26 @@ namespace RemidDDD.Framework.Test
 
 		public void Execute(FakeCommand command)
 		{
+			command.Execute();
+		}
+	}
+	public class FakeCommandHandlerRaisingEvent : ICommandHandler<FakeCommand>
+	{
+		private readonly MessageProcessor _messageProcessor;
+
+		public FakeCommandHandlerRaisingEvent(MessageProcessor messageProcessor)
+		{
+			_messageProcessor = messageProcessor;
+		}
+
+		public void Execute(FakeCommand command)
+		{
+			_messageProcessor.Raise(
+				new FakeEvent()
+			        {
+			            TestId = command.TestId
+			        },
+			command);
 			command.Execute();
 		}
 	}
@@ -120,6 +154,8 @@ namespace RemidDDD.Framework.Test
 		{
 			Executed = true;
 		}
+
+		public int TestId { get; set; }
 
 		public bool Executed { get; set; }
 	}

@@ -53,14 +53,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cqrs\CommandProcessor.cs" />
-    <Compile Include="Cqrs\ICommand.cs" />
-    <Compile Include="Cqrs\ICommandHandler.cs" />
-    <Compile Include="Cqrs\IEvent.cs" />
-    <Compile Include="Cqrs\IObserver.cs" />
+    <Compile Include="Cqrs\Command\CommandExecuted.cs" />
+    <Compile Include="Cqrs\Command\EventRaised.cs" />
+    <Compile Include="Cqrs\Command\MessageProcessor.cs" />
+    <Compile Include="Cqrs\Command\ICommand.cs" />
+    <Compile Include="Cqrs\Command\ICommandHandler.cs" />
+    <Compile Include="Cqrs\Command\IEvent.cs" />
+    <Compile Include="Cqrs\Command\IObserver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Cqrs\Query\" />
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
